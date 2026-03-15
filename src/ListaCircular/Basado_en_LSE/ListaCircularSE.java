@@ -7,7 +7,7 @@ public class ListaCircularSE<T extends Comparable<T>> implements Lista<T> {
     protected ElementoSE<T> primero;
     protected ElementoSE<T> ultimo; // Mantener el último nos ahorra mucho trabajo
     protected int tamaño;
-    /** Constructor por defecto. Inicializa la lista vacía con primero y ultimo a null y tamaño a 0.*/
+    /** Constructor por defecto. Inicializa la lista vacía con primero y último a null y tamaño a 0.*/
     public ListaCircularSE() {
         this.primero = null;
         this.ultimo = null;
