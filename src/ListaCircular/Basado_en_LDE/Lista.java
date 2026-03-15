@@ -1,0 +1,19 @@
+package ListaCircular.Basado_en_LDE;
+
+import ListaCircular.Basado_en_LSE.MiIterador;
+
+// Interfaz para la ListaCircular.Basado_en_LDE.Lista de todos los TAD
+public interface Lista<T extends Comparable<T>> {
+    void add(T dato);
+    T get(T dato);
+    T del(T dato);
+    boolean isEmpty();
+    int getSize();
+    MiIterador<T> getIterador();
+    // Los extras para subir nota (fáciles de leer)
+    void vaciar();
+    boolean existe(T dato);
+    T obtenerPorPosicion(int puesto);
+    void cambiarEnPosicion(int puesto, T nuevoDato);
+    String mostrarLista(); // Un toString pero con nombre más sencillo
+}
