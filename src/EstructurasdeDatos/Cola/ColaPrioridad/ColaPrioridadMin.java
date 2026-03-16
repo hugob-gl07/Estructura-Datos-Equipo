@@ -3,7 +3,7 @@ package EstructurasdeDatos.Cola.ColaPrioridad;
  * Representa una cola de prioridad mínima genérica.
  * Los elementos se ordenan internamente usando una LDEOrdenada, de forma que el elemento con menor prioridad siempre está al inicio.
  */
-import EstructurasdeDatos.LDE.ListaModular.LDEOrdenada;
+import EstructurasdeDatos.LDE.ListaDoblementeEnlazada.LDEOrdenada;
 public class ColaPrioridadMin <T extends Comparable<T>> {
     private LDEOrdenada<T> lista=new LDEOrdenada<>(); // Lista ordenada interna que gestiona la prioridad
     /** Inserta un dato en la cola manteniendo el orden por prioridad.*/
@@ -49,8 +49,8 @@ public class ColaPrioridadMin <T extends Comparable<T>> {
         return lista.toString(); // Delegamos en la LDEOrdenada
     }
     /** Comprueba si un dato existe en la cola.*/
-    public T contains(T dato){
-        return lista.get(dato); // Buscamos el dato en la LDEOrdenada
+    public boolean contains(T dato){
+        return lista.get(dato) != null; // Buscamos el dato en la LDEOrdenada
     }
     /**
      * Reemplaza un dato existente por uno nuevo manteniendo el orden.

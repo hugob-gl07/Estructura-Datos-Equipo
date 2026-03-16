@@ -1,0 +1,56 @@
+@startuml
+interface Iterador<T> {
+    + hasNext():boolean
+    + next():T
+}
+interface Lista<T extends Comparable<T>> {
+    + add(dato:T):void
+    + del(dato:T):T
+    + get(dato:T):T
+    + isEmpty():boolean
+    + getSize():int
+    + getIterador():Iterador<T>
+    + vaciar():void
+    + existe(dato:T):boolean
+    + obtenerPorPosicion(puesto:int):T
+    + cambiarEnPosicion(puesto:int, nuevoDato:T):void
+    + mostrarLista():String
+}
+class ElementoSE<T> {
+    + dato: T
+    + siguiente: ElementoSE<T>
+    + ElementoSE(valor:T)
+}
+
+class IteradorLSE<T> {
+    - actual: ElementoSE<T>
+    + IteradorLSE(comienzo:ElementoSE<T>)
+    + hasNext():boolean
+    + next():T
+}
+class ListaSimplementeEnlazada<T extends Comparable<T>> {
+    # primero: ElementoSE<T>
+    # tamaño: int
+    + ListaSimplementeEnlazada()
+    + add(dato:T):void
+    + del(dato:T):T
+    + get(dato:T):T
+    + isEmpty():boolean
+    + getSize():int
+    + getIterador():Iterador<T>
+    + vaciar():void
+    + existe(dato:T):boolean
+    + obtenerPorPosicion(puesto:int):T
+    + cambiarEnPosicion(puesto:int, nuevoDato:T):void
+    + mostrarLista():String
+}
+class LSEOrdenada<T extends Comparable<T>> {
+    + add(dato:T):void
+}
+IteradorLSE ..|> Iterador : implements
+ListaSimplementeEnlazada ..|> Lista : implements
+LSEOrdenada --|> ListaSimplementeEnlazada : extends
+ListaSimplementeEnlazada *-- ElementoSE : composición
+ListaSimplementeEnlazada ..> IteradorLSE : usa
+IteradorLSE ..> ElementoSE : usa
+@enduml

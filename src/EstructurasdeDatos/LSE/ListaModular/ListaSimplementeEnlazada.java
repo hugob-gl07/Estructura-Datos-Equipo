@@ -1,135 +1,125 @@
 package EstructurasdeDatos.LSE.ListaModular;
-
 import Interfaces.Lista;
 import Interfaces.Iterador;
-
+/**Representa una lista simplemente enlazada genérica y ordenable.*/
 public class ListaSimplementeEnlazada<T extends Comparable<T>> implements Lista<T> {
-    protected ElementoSE<T> primero; // El símbolo rombo (◊) es protected
-    protected int tamaño;
 
+    protected ElementoSE<T> primero; // Puntero al primer elemento de la lista
+    protected int tamaño;            // Contador de elementos de la lista
+
+    /** Constructor por defecto. Inicializa la lista vacía con primero a null y tamaño a 0.*/
     public ListaSimplementeEnlazada() {
         this.primero = null;
         this.tamaño = 0;
     }
-
+    /** Inserta un dato al final de la lista.*/
     @Override
     public void add(T dato) {
-        ElementoSE<T> nuevo = new ElementoSE<>(dato);
+        ElementoSE<T> nuevo = new ElementoSE<>(dato); // Creamos un nuevo elemento con el dato
         if (isEmpty()) {
-            primero = nuevo;
+            primero = nuevo; // Si la lista está vacía el nuevo elemento pasa a ser el primero
         } else {
-            ElementoSE<T> aux = primero;
+            ElementoSE<T> aux = primero; // Empezamos desde el primer elemento
             while (aux.siguiente != null) {
-                aux = aux.siguiente;
+                aux = aux.siguiente; // Avanzamos hasta llegar al último elemento
             }
-            aux.siguiente = nuevo;
+            aux.siguiente = nuevo; // Conectamos el nuevo elemento después del último
         }
-        tamaño++;
+        tamaño++; // Incrementamos el tamaño
     }
-
+    /** Busca y devuelve un dato por valor.*/
     @Override
     public T get(T dato) {
-        ElementoSE<T> aux = primero;
-        while (aux != null) {
-            if (aux.dato.equals(dato)) return aux.dato;
-            aux = aux.siguiente;
+        ElementoSE<T> aux = primero; // Empezamos desde el primer elemento
+        while (aux != null) { // Recorremos hasta el final
+            if (aux.dato.equals(dato)) return aux.dato; // Si el dato coincide lo devolvemos
+            aux = aux.siguiente; // Avanzamos al siguiente elemento
         }
-        return null;
+        return null; // Si no encontramos el dato devolvemos null
     }
-
+    /** Busca y elimina un dato por valor.*/
     @Override
     public T del(T dato) {
-        // Lógica sencilla de borrado
-        if (isEmpty()) return null;
+        if (isEmpty()) return null; // Si la lista está vacía devolvemos null
         if (primero.dato.equals(dato)) {
-            T valor = primero.dato;
-            primero = primero.siguiente;
-            tamaño--;
-            return valor;
+            // Si el dato a eliminar es el primero
+            T valor = primero.dato;          // Guardamos el dato para devolverlo
+            primero = primero.siguiente;     // El segundo elemento pasa a ser el primero
+            tamaño--;                        // Decrementamos el tamaño
+            return valor;                    // Devolvemos el dato eliminado
         }
-        // ... búsqueda y borrado del nodo intermedio ...
-        return null;
+        return null; // Si no encontramos el dato devolvemos null
     }
-
+    /** Devuelve true si la lista está vacía, false si no.*/
     @Override
-    public boolean isEmpty() { return primero == null; }
-
+    public boolean isEmpty() { return primero == null; } // Si el primero es null la lista está vacía
+    /** Devuelve el número de elementos de la lista.*/
     @Override
-    public int getSize() { return tamaño; }
-
+    public int getSize() { return tamaño; } // Devolvemos el contador de elementos
+    /** Devuelve un iterador para recorrer la lista.*/
     @Override
     public Iterador<T> getIterador() {
-        return new IteradorLSE<>(primero);
+        return new IteradorLSE<>(primero); // Creamos un iterador comenzando desde el primero
     }
-
-    // Borra todo de golpe
+    /** Vacía la lista eliminando todos sus elementos.*/
     @Override
     public void vaciar() {
-        this.primero = null;
-        this.tamaño = 0;
+        this.primero = null; // El primer elemento ya no apunta a nada
+        this.tamaño = 0;     // Reiniciamos el contador
         System.out.println("La lista se ha vaciado.");
     }
-
-    // Dice si un dato está o no
+    /** Comprueba si un elemento existe en la lista recorriendo desde el primero.*/
     @Override
     public boolean existe(T dato) {
-        ElementoSE<T> aux = primero;
-        while (aux != null) {
+        ElementoSE<T> aux = primero; // Empezamos desde el primer elemento
+        while (aux != null) { // Recorremos hasta el final
             if (aux.dato.equals(dato)) {
-                return true; // ¡Lo encontramos!
+                return true; // Si encontramos el dato devolvemos true
             }
-            aux = aux.siguiente;
+            aux = aux.siguiente; // Avanzamos al siguiente elemento
         }
-        return false; // Si llega aquí, es que no estaba
+        return false; // Si no encontramos el dato devolvemos false
     }
-
-    // Busca por el número de la "cajita" (0, 1, 2...)
+    /** Devuelve el elemento en la posición indicada recorriendo desde el primero.*/
     @Override
     public T obtenerPorPosicion(int puesto) {
         if (puesto < 0 || puesto >= tamaño) {
-            System.out.println("Error: Esa posición no existe");
+            System.out.println("Error: Esa posición no existe"); // La posición está fuera del rango válido
             return null;
         }
-
-        ElementoSE<T> aux = primero;
-        // Caminamos por la lista tantas veces como diga el puesto
+        ElementoSE<T> aux = primero; // Empezamos desde el primer elemento
         for (int i = 0; i < puesto; i++) {
-            aux = aux.siguiente;
+            aux = aux.siguiente; // Avanzamos hasta la posición indicada
         }
-        return aux.dato;
+        return aux.dato; // Devolvemos el dato en esa posición
     }
-
-    // Cambia el dato de una cajita específica
+    /** Reemplaza el dato en la posición indicada por un nuevo dato sin crear un nuevo nodo.*/
     @Override
     public void cambiarEnPosicion(int puesto, T nuevoDato) {
         if (puesto < 0 || puesto >= tamaño) {
-            System.out.println("Error: No puedo cambiar nada ahí");
+            System.out.println("Error: No puedo cambiar nada ahí"); // La posición está fuera del rango válido
             return;
         }
-
-        ElementoSE<T> aux = primero;
+        ElementoSE<T> aux = primero; // Empezamos desde el primer elemento
         for (int i = 0; i < puesto; i++) {
-            aux = aux.siguiente;
+            aux = aux.siguiente; // Avanzamos hasta la posición indicada
         }
-        aux.dato = nuevoDato; // Sobreescribimos el dato viejo
+        aux.dato = nuevoDato; // Reemplazamos el dato sin crear un nuevo nodo
     }
-
-    // Crea un texto para imprimir la lista en consola
+    /** Devuelve una representación en texto de la lista.*/
     @Override
     public String mostrarLista() {
         if (isEmpty()) {
-            return "Lista vacía";
+            return "Lista vacía"; // Si la lista está vacía devolvemos mensaje
         }
-
-        String resultado = "Elementos: ";
-        ElementoSE<T> aux = primero;
-
+        String resultado = "Elementos: "; // Indicamos el inicio de la lista
+        ElementoSE<T> aux = primero;      // Empezamos desde el primer elemento
         while (aux != null) {
-            resultado = resultado + aux.dato; // Vamos sumando el texto
+            resultado = resultado + aux.dato; // Añadimos el dato al resultado
             if (aux.siguiente != null) {
-                resultado = resultado + " -> ";
+                resultado = resultado + " -> "; // Conectamos cada elemento con flecha
             }
-            aux = aux.siguiente;
+            aux = aux.siguiente; // Avanzamos al siguiente elemento
         }
         return resultado;
     }

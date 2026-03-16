@@ -3,9 +3,9 @@ package EstructurasdeDatos.Cola.ColaPrioridad;
  * Representa una cola de prioridad máxima genérica.
  * Los elementos se ordenan internamente usando una LDEOrdenada, de forma que el elemento con mayor prioridad siempre está al final.
  */
-import EstructurasdeDatos.LDE.ListaModular.LDEOrdenada;
+import EstructurasdeDatos.LDE.ListaDoblementeEnlazada.ListaDoblementeEnlazada;
 public class  ColaPrioridadMax<T extends Comparable<T>> {
-    private LDEOrdenada<T> lista=new LDEOrdenada<>(); // Lista ordenada interna que gestiona la prioridad
+    private ListaDoblementeEnlazada<T> lista=new ListaDoblementeEnlazada<>(); // Lista ordenada interna que gestiona la prioridad
     /** Inserta un dato en la cola manteniendo el orden por prioridad.*/
     public void enqueue(T dato){
         lista.add(dato); // Delegamos en la LDEOrdenada para insertar en orden

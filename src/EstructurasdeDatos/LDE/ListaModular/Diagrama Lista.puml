@@ -1,0 +1,61 @@
+@startuml
+interface Iterador<T> {
+    + hasNext():boolean
+    + next():T
+}
+
+interface Lista<T extends Comparable<T>> {
+    + add(dato:T):void
+    + del(dato:T):T
+    + get(dato:T):T
+    + isEmpty():boolean
+    + getSize():int
+    + getIterador():Iterador<T>
+    + vaciar():void
+    + existe(dato:T):boolean
+    + obtenerPorPosicion(puesto:int):T
+    + cambiarEnPosicion(puesto:int, nuevoDato:T):void
+    + mostrarLista():String
+}
+
+class ElementoDE<T> {
+    # dato: T
+    # siguiente: ElementoDE<T>
+    # anterior: ElementoDE<T>
+    + ElementoDE(dato:T)
+}
+class IteradorLDE<T> {
+    - actual: ElementoDE<T>
+    + IteradorLDE(comienzo:ElementoDE<T>)
+    + hasNext():boolean
+    + next():T
+}
+class ListaDoblementeEnlazada<T extends Comparable<T>> {
+    # primero: ElementoDE<T>
+    # ultimo: ElementoDE<T>
+    # tamaño: int
+    + ListaDoblementeEnlazada()
+    + add(dato:T):void
+    + del(dato:T):T
+    + get(dato:T):T
+    + isEmpty():boolean
+    + getSize():int
+    + getIterador():Iterador<T>
+    + vaciar():void
+    + existe(dato:T):boolean
+    + obtenerPorPosicion(puesto:int):T
+    + cambiarEnPosicion(puesto:int, nuevoDato:T):void
+    + mostrarLista():String
+    + mostrarAlReves():String
+}
+class LDEOrdenada<T extends Comparable<T>> {
+    + add(dato:T):void
+}
+IteradorLDE ..|> Iterador : implements
+ListaDoblementeEnlazada ..|> Lista : implements
+LDEOrdenada --|> ListaDoblementeEnlazada : extends
+ListaDoblementeEnlazada *-- ElementoDE : composición
+ListaDoblementeEnlazada ..> IteradorLDE : usa
+IteradorLDE ..> ElementoDE : usa
+
+@enduml

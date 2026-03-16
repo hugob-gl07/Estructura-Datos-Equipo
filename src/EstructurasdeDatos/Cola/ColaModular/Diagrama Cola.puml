@@ -1,0 +1,19 @@
+@startuml
+class Cola<T extends Comparable<T>>{
+    - cabeza:Elemento<T>
+    - cola:Elemento<T>
+    + Cola()
+    + enqueue(dato:T):void
+    + dequeue():T
+    + front():T
+    + getSize():int
+    + isEmpty():boolean
+}
+class ElementoDE<T> {
+    # dato: T
+    # siguiente: ElementoDE<T>
+    # anterior: ElementoDE<T>
+    + ElementoDE(dato:T)
+}
+Cola *-- ElementoDE : composición
+@enduml

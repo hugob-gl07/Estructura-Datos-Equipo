@@ -15,20 +15,5 @@ class Pila<T extends Comparable<T>>{
     + peek():T
     + isEmpty():boolean
 }
-note right of Pila::push
-**LIFO**: Apila al inicio
-end note
-
-note right of Pila::pop
-**Elimina** y **devuelve** el primer elemento
-end note
-
-note left of Pila::isEmpty
-**Devuelve** `true` si está vacía (`cabeza==null`)
-end note
-
-note left of Pila::peek()
-**Devuelve** el primer elemento
-end note
 Elemento *-- Pila
 @enduml

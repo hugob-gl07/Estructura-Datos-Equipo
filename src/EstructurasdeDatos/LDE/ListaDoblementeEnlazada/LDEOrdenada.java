@@ -1,7 +1,4 @@
 package EstructurasdeDatos.LDE.ListaDoblementeEnlazada;
-
-import EstructurasdeDatos.LDE.ListaDoblementeEnlazada;
-
 /**
  * Representa una lista doblemente enlazada que mantiene los elementos ordenados.*/
 public class LDEOrdenada<T extends Comparable<T>> extends ListaDoblementeEnlazada<T> {

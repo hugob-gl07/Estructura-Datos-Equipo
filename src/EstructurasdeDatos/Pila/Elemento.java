@@ -1,5 +1,4 @@
 package EstructurasdeDatos.Pila;
-
 /**
  * Representa un nodo genérico usado por las estructuras de datos.
  * Contiene un dato y un puntero al elemento siguiente.
@@ -7,7 +6,6 @@ package EstructurasdeDatos.Pila;
 public class Elemento<T extends Comparable<T>> {
     private T dato;                  // Dato almacenado en el nodo
     private Elemento<T> siguiente;   // Puntero al siguiente nodo
-
     /**
      * Constructor con dato dado.
      * El puntero siguiente se inicializa a null.

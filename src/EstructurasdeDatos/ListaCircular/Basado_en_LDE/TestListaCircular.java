@@ -1,5 +1,7 @@
 package EstructurasdeDatos.ListaCircular.Basado_en_LDE;
 
+import Interfaces.Iterador;
+
 public class TestListaCircular {
     public static void main(String[] args) {
 
@@ -45,7 +47,7 @@ public class TestListaCircular {
         // Simulamos una ronda de turnos con el iterador
         // -------------------------------------------------------
         System.out.println("\n--- Simulando ronda de turnos ---");
-        MiIterador<String> iterador = jugadores.getIterador();
+        Iterador<String> iterador = jugadores.getIterador();
         while (iterador.hasNext()) {
             System.out.println("Turno de: " + iterador.next());
         }
@@ -68,7 +70,7 @@ public class TestListaCircular {
         // Simulamos otra ronda de turnos tras los cambios
         // -------------------------------------------------------
         System.out.println("\n--- Segunda ronda de turnos ---");
-        MiIterador<String> iterador2 = jugadores.getIterador();
+        Iterador<String> iterador2 = jugadores.getIterador();
         while (iterador2.hasNext()) {
             System.out.println("Turno de: " + iterador2.next());
         }

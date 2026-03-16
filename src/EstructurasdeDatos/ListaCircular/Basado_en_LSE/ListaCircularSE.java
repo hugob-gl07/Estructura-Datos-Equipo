@@ -1,8 +1,6 @@
 package EstructurasdeDatos.ListaCircular.Basado_en_LSE;
-
-import EstructurasdeDatos.ListaCircular.Basado_en_LDE.Lista;
-import EstructurasdeDatos.ListaCircular.Basado_en_LDE.MiIterador;
-
+import Interfaces.Lista;
+import Interfaces.Iterador;
 /**
  * Representa una lista circular simplemente enlazada genérica y ordenable.
  * El último elemento apunta al primero formando un círculo.
@@ -79,7 +77,7 @@ public class ListaCircularSE<T extends Comparable<T>> implements Lista<T> {
     }
     /** Devuelve un iterador circular que recorre la lista exactamente una vuelta.*/
     @Override
-    public MiIterador<T> getIterador() {
+    public Iterador<T> getIterador() {
         return new IteradorCircularSE<>(primero, tamaño); // Creamos un iterador comenzando desde el primero
     }
     /** Vacía la lista eliminando todos sus elementos.*/

@@ -1,0 +1,43 @@
+@startuml
+
+left to right direction
+
+interface ListaTAD<T> {
+    + esVacia():boolean
+    + longitud():int
+    + insertarFinal(elemento:T):void
+    + buscar(elemento:T):boolean
+    + aciertos_exactos(otraLista:ListaTAD<T>):int
+}
+
+class Nodo<T> {
+    - dato: T
+    - siguiente: Nodo<T>
+    + Nodo(dato:T)
+    + Nodo(dato:T, siguiente:Nodo<T>)
+    + getDato():T
+    + setDato(dato:T):void
+    + getSiguiente():Nodo<T>
+    + setSiguiente(siguiente:Nodo<T>):void
+}
+
+class Lista<T> {
+    - cabeza: Nodo<T>
+    - tamano: int
+    + Lista()
+    + esVacia():boolean
+    + longitud():int
+    + insertarFinal(elemento:T):void
+    + buscar(elemento:T):boolean
+    + aciertos_exactos(otraLista:ListaTAD<T>):int
+    + eliminar(elemento:T):void
+    + invertir():void
+    + obtenerCentral():T
+    + EliminarRepetidos():void
+    + detectorCiclo():boolean
+    + EliminarPorElFinal(n:int):void
+    + intercalar(otraLista:ListaTAD<T>):void
+}
+Lista ..|> ListaTAD : implements
+Lista *-- Nodo : composición
+@enduml

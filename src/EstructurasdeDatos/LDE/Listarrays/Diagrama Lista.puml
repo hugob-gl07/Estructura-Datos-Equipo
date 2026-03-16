@@ -1,0 +1,31 @@
+@startuml
+class Lista<T> {
+    - cabeza: Nodo<T>
+    - cola: Nodo<T>
+    - tamano: int
+    + Lista()
+    + esVacia():boolean
+    + longitud():int
+    + insertarPrincipio(elemento:T):void
+    + insertarFinal(elemento:T):void
+    + imprimirAdelante():void
+    + imprimirAtras():void
+    + buscar(elemento:T):boolean
+    + eliminarPrimero():void
+    + eliminarUltimo():void
+    + eliminar(elemento:T):void
+}
+class Nodo<T> {
+    - dato: T
+    - siguiente: Nodo<T>
+    - anterior: Nodo<T>
+    + Nodo(dato:T)
+    + getDato():T
+    + setDato(dato:T):void
+    + getSiguiente():Nodo<T>
+    + setSiguiente(siguiente:Nodo<T>):void
+    + getAnterior():Nodo<T>
+    + setAnterior(anterior:Nodo<T>):void
+}
+Lista *-- Nodo : composición
+@enduml

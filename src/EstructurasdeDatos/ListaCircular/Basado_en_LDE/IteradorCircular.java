@@ -3,7 +3,8 @@ package EstructurasdeDatos.ListaCircular.Basado_en_LDE;
  * Representa un iterador circular que recorre la lista exactamente una vuelta.
  * Usa un contador para evitar el bucle infinito propio de la estructura circular.
 */
-public class IteradorCircular<T> implements MiIterador<T>{
+import Interfaces.Iterador;
+public class IteradorCircular<T> implements Iterador<T>{
     private ElementoDE<T> actual;
     private int elementosVisitados;
     private int total;

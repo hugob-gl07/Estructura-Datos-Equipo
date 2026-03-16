@@ -1,4 +1,5 @@
 package EstructurasdeDatos.ListaCircular.Basado_en_LDE;
+import Interfaces.Iterador;
 /**
  * Representa una lista circular doblemente enlazada genérica y ordenable.
  * El último elemento apunta al primero y el primero apunta al último, formando un círculo infinito.
@@ -72,7 +73,7 @@ public class ListaCircularDE<T extends Comparable<T>> {
         return tamaño; // Devolvemos el contador de elementos
     }
     /** Devuelve un iterador circular que recorre la lista exactamente una vuelta.*/
-    public MiIterador<T> getIterador() {
+    public Iterador<T> getIterador() {
         return new IteradorCircular<>(primero, tamaño); // Creamos un iterador comenzando desde el primero
     }
     /** Vacía la lista eliminando todos sus elementos.*/

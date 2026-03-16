@@ -1,27 +1,38 @@
 package EstructurasdeDatos.LSE.Listarrays;
 
+/**
+ * Representa un nodo de una lista simplemente enlazada.
+ * Contiene un dato y un puntero al siguiente nodo.
+*/
 public class Nodo<T> {
-    private T dato;
-    private Nodo<T> siguiente;
-    public Nodo (T dato){
-        this.dato = dato;
+    private T dato;            // Dato almacenado en el nodo
+    private Nodo<T> siguiente; // Puntero al siguiente nodo
+    /**
+     * Constructor con dato.
+     * Inicializa siguiente a null.
+     */
+    public Nodo(T dato) {
+        this.dato = dato; // Almacenamos el dato en el nodo
     }
-    public Nodo (T dato, Nodo<T> siguiente){
-        this.siguiente = siguiente;
-        this.dato=dato;
-
+    /** Constructor con dato y siguiente.*/
+    public Nodo(T dato, Nodo<T> siguiente) {
+        this.siguiente = siguiente; // Apuntamos al nodo siguiente
+        this.dato = dato;           // Almacenamos el dato en el nodo
     }
-    public T getDato(){
-        return dato;
+    /** Devuelve el dato del nodo.*/
+    public T getDato() {
+        return dato; // Devolvemos el dato almacenado
     }
-    public void setDato(T dato){
-        this.dato = dato;
+    /** Modifica el dato del nodo.*/
+    public void setDato(T dato) {
+        this.dato = dato; // Reemplazamos el dato almacenado
     }
-    public Nodo<T> getSiguiente(){
-        return siguiente;
+    /** Devuelve el siguiente nodo.*/
+    public Nodo<T> getSiguiente() {
+        return siguiente; // Devolvemos el puntero al siguiente nodo
     }
-    public void setSiguiente (Nodo<T> siguiente){
-        this.siguiente = siguiente;
+    /** Modifica el puntero al siguiente nodo.*/
+    public void setSiguiente(Nodo<T> siguiente) {
+        this.siguiente = siguiente; // Actualizamos el puntero al siguiente nodo
     }
 }
-
