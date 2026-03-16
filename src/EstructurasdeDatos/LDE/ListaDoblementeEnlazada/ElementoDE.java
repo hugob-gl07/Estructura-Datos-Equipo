@@ -1,4 +1,4 @@
-package LDE;
+package EstructurasdeDatos.LDE.ListaDoblementeEnlazada;
 
 /**
  * Representa un nodo de una lista doblemente enlazada.

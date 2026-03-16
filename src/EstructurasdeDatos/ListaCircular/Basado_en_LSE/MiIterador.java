@@ -1,4 +1,4 @@
-package ListaCircular.Basado_en_LDE;
+package EstructurasdeDatos.ListaCircular.Basado_en_LSE;
 /** Interfaz que define el comportamiento del iterador para recorrer los TAD.*/
 public interface MiIterador<T> {
     /** Comprueba si quedan elementos por recorrer.*/

@@ -1,4 +1,4 @@
-package ListaCircular.Basado_en_LDE;
+package EstructurasdeDatos.ListaCircular.Basado_en_LDE;
 /**
  * Representa un nodo de una lista doblemente enlazada.
  * Reutilizado para la lista circular doblemente enlazada.

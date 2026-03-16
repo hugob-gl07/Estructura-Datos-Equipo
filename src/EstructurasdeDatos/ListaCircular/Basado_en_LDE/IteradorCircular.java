@@ -1,4 +1,4 @@
-package ListaCircular.Basado_en_LDE;
+package EstructurasdeDatos.ListaCircular.Basado_en_LDE;
 /**
  * Representa un iterador circular que recorre la lista exactamente una vuelta.
  * Usa un contador para evitar el bucle infinito propio de la estructura circular.

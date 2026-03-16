@@ -1,4 +1,4 @@
-package LDE;
+package EstructurasdeDatos.LDE.ListaDoblementeEnlazada;
 
 /**
  * Representa una lista doblemente enlazada que mantiene los elementos ordenados.*/
@@ -6,7 +6,7 @@ public class LDEOrdenada<T extends Comparable<T>> extends ListaDoblementeEnlazad
 
     /**
      * Inserta un dato en la posición correcta para mantener el orden ascendente.
-     * Sobrescribe el metodo add de ListaDoblementeEnlazada.
+     * Sobrescribe el metodo add de EstructurasdeDatos.LDE.ListaDoblementeEnlazada.
      */
     @Override
     public T add(T dato) {
@@ -46,7 +46,7 @@ public class LDEOrdenada<T extends Comparable<T>> extends ListaDoblementeEnlazad
             actual.anterior = nuevo;           // El actual apunta hacia atrás al nuevo
         }
 
-        tamaño++; // Incrementamos el contador heredado de ListaDoblementeEnlazada
+        tamaño++; // Incrementamos el contador heredado de EstructurasdeDatos.LDE.ListaDoblementeEnlazada
         return dato; // Devolvemos el dato
     }
 }

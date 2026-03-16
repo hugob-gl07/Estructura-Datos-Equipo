@@ -1,4 +1,4 @@
-package ListaCircular.Basado_en_LDE;
+package EstructurasdeDatos.ListaCircular.Basado_en_LDE;
 
 public class TestListaCircular {
     public static void main(String[] args) {

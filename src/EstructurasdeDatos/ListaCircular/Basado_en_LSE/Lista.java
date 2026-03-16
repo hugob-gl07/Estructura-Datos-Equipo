@@ -1,4 +1,4 @@
-package ListaCircular.Basado_en_LDE;
+package EstructurasdeDatos.ListaCircular.Basado_en_LSE;
 /** Interfaz que define el comportamiento de una lista para todos los TAD.*/
 public interface Lista<T extends Comparable<T>> {
     /** Inserta un elemento en la lista.*/

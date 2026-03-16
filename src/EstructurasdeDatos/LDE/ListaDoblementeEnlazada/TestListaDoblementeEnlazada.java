@@ -1,4 +1,4 @@
-package LDE;
+package EstructurasdeDatos.LDE.ListaDoblementeEnlazada;
 public class TestListaDoblementeEnlazada {
     public static void main(String[] args) {
 

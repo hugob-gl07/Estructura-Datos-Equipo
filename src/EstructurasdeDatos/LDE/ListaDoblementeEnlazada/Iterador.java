@@ -1,4 +1,4 @@
-package LDE;
+package EstructurasdeDatos.LDE.ListaDoblementeEnlazada;
 
 /**
  * Interface que define el contrato para recorrer una estructura de datos

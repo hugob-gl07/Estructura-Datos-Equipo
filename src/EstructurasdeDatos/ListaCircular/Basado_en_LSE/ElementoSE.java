@@ -1,4 +1,4 @@
-package ListaCircular.Basado_en_LSE;
+package EstructurasdeDatos.ListaCircular.Basado_en_LSE;
 /** Representa un nodo de una lista simplemente enlazada.*/
 public class ElementoSE<T> {
     public T dato;                   // El dato que almacena el nodo
