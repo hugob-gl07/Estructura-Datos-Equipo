@@ -1,4 +1,7 @@
 package EstructurasdeDatos.ListaCircular.Basado_en_LSE;
+
+import EstructurasdeDatos.ListaCircular.Basado_en_LDE.MiIterador;
+
 /**
  * Representa un iterador circular que recorre la lista simplemente enlazada exactamente una vuelta.
  * Usa un contador para evitar el bucle infinito propio de la estructura circular.

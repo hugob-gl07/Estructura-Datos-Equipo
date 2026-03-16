@@ -1,5 +1,4 @@
 package EstructurasdeDatos.LDE.ListaDoblementeEnlazada;
-
 /**
  * Representa un nodo de una lista doblemente enlazada.
  * Contiene un dato y punteros al elemento anterior y siguiente.

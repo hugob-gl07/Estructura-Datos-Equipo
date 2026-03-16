@@ -1,9 +1,9 @@
-package Cola.ColaPrioridad;
+package EstructurasdeDatos.Cola.ColaPrioridad;
 /**
  * Representa una cola de prioridad mínima genérica.
  * Los elementos se ordenan internamente usando una LDEOrdenada, de forma que el elemento con menor prioridad siempre está al inicio.
  */
-import LDE.LDEOrdenada;
+import EstructurasdeDatos.LDE.ListaModular.LDEOrdenada;
 public class ColaPrioridadMin <T extends Comparable<T>> {
     private LDEOrdenada<T> lista=new LDEOrdenada<>(); // Lista ordenada interna que gestiona la prioridad
     /** Inserta un dato en la cola manteniendo el orden por prioridad.*/

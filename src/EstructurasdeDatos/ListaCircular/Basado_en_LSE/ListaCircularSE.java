@@ -1,4 +1,8 @@
 package EstructurasdeDatos.ListaCircular.Basado_en_LSE;
+
+import EstructurasdeDatos.ListaCircular.Basado_en_LDE.Lista;
+import EstructurasdeDatos.ListaCircular.Basado_en_LDE.MiIterador;
+
 /**
  * Representa una lista circular simplemente enlazada genérica y ordenable.
  * El último elemento apunta al primero formando un círculo.

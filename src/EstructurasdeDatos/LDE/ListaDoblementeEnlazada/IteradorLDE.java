@@ -1,12 +1,12 @@
 package EstructurasdeDatos.LDE.ListaDoblementeEnlazada;
-
+import Interfaces.Iterador;
 /**
  * Representa un iterador para recorrer una lista doblemente enlazada.
  * Implementa la interfaz Iterador para permitir recorrer la listasin conocer su estructura interna.
  */
 public class IteradorLDE<T> implements Iterador<T> {
 
-    private ElementoDE<T> actual; // Elemento actual en el recorrido
+    private ElementoDE<T> actual; // ListaCircular.Elemento actual en el recorrido
 
     /** Constructor con el elemento de inicio del recorrido.*/
     public IteradorLDE(ElementoDE<T> inicio) {

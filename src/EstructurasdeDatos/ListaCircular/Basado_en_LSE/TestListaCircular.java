@@ -1,4 +1,7 @@
 package EstructurasdeDatos.ListaCircular.Basado_en_LSE;
+
+import EstructurasdeDatos.ListaCircular.Basado_en_LDE.MiIterador;
+
 public class TestListaCircular {
     public static void main(String[] args) {
 

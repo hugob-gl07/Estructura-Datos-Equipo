@@ -1,5 +1,7 @@
 package EstructurasdeDatos.LDE.ListaDoblementeEnlazada;
 
+import Interfaces.Iterador;
+
 /**
  * Representa una lista doblemente enlazada genérica y ordenable.
  * @param <T> tipo de dato que debe ser Comparable
