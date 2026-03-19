@@ -21,11 +21,11 @@ public class ListaSimplementeEnlazada<T extends Comparable<T>> {
             primero=nuevo; // Si la lista está vacía el nuevo elemento pasa a ser el primero
         }
         else {
-            ElementoSE<T>actual=primero; // Empezamos desde el primer elemento
-            while(actual.siguiente!=null){
-                actual=actual.siguiente; // Avanzamos hasta llegar al último elemento
+            nuevo=primero; // Empezamos desde el primer elemento
+            while(nuevo.siguiente!=null){
+                nuevo=nuevo.siguiente; // Avanzamos hasta llegar al último elemento
             }
-            actual.siguiente=nuevo; // Conectamos el nuevo elemento después del último
+            nuevo.siguiente=nuevo; // Conectamos el nuevo elemento después del último
         }
         tamaño++; // Incrementamos el tamaño de la lista
     }
