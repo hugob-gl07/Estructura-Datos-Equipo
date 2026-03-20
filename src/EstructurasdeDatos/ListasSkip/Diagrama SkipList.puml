@@ -1,0 +1,44 @@
+@startuml
+skinparam classAttributeIconSize 0
+skinparam monochrome true
+skinparam shadowing false
+
+package EstructurasdeDatos.ListasSkip {
+
+    class ListaSkip<T extends Comparable<T>> {
+        - CABECERA : NodoSkip<T>
+        - nivelActual : int
+        - MAX_NIVEL : int = 16
+        - random : Random
+        + ListaSkip()
+        + insertar(dato: T) : void
+        + eliminar(dato: T) : boolean
+        + buscar(dato: T) : boolean
+        + obtenerMinimo() : T
+        + imprimir() : void
+        - generarNivelAleatorio() : int
+    }
+
+    class NodoSkip<T> {
+        - dato : T
+        - siguiente : NodoSkip<T>[]
+        + NodoSkip(dato: T, nivel: int)
+        + getDato() : T
+        + getSiguiente(nivel: int) : NodoSkip<T>
+        + setSiguiente(nivel: int, nodo: NodoSkip<T>) : void
+    }
+
+    ' Relación de composición: La lista "es dueña" de los nodos
+    ListaSkip "1" *-- "0..*" NodoSkip : gestiona >
+
+    ' Relación recursiva: Un nodo apunta a otros nodos en sus distintos niveles
+    NodoSkip "1" --> "0..*" NodoSkip : siguiente[nivel] >
+}
+
+note bottom of ListaSkip
+  Estructura probabilística que permite
+  búsquedas rápidas mediante "saltos"
+  entre niveles superiores.
+end note
+
+@enduml

@@ -1,0 +1,53 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+' --- Definición de VList (tu clase Lista) ---
+class EstructurasdeDatos.VList.Lista<T> {
+    - inicio : NodoVList<T>
+    - fin : NodoVList<T>
+    - tamaño : int
+    + Lista()
+    + insertar(dato: T) : void
+    + eliminar(dato: T) : boolean
+    + buscar(dato: T) : boolean
+    + imprimir() : void
+    + estaVacia() : boolean
+    + obtenerTamaño() : int
+}
+
+class EstructurasdeDatos.VList.NodoVList<T> {
+    - datos : T[]
+    - siguiente : NodoVList<T>
+    + NodoVList(capacidad: int)
+}
+
+' Relación VList -> NodoVList
+EstructurasdeDatos.VList.Lista "1" *-- "0..*" EstructurasdeDatos.VList.NodoVList : contiene >
+
+' --- Definición de SkipList ---
+class EstructurasdeDatos.ListasSkip.ListaSkip<T extends Comparable<T>> {
+    - CABECERA : NodoSkip<T>
+    - nivelActual : int
+    - random : Random
+    - MAX_NIVEL : int = 16
+    + ListaSkip()
+    + insertar(dato: T) : void
+    + eliminar(dato: T) : boolean
+    + buscar(dato: T) : boolean
+    + imprimir() : void
+    - generarNivelAleatorio() : int
+}
+
+class EstructurasdeDatos.ListasSkip.NodoSkip<T> {
+    - dato : T
+    - siguiente : NodoSkip<T>[]
+    + NodoSkip(dato: T, nivel: int)
+}
+
+' Relación SkipList -> NodoSkip
+EstructurasdeDatos.ListasSkip.ListaSkip "1" *-- "0..*" EstructurasdeDatos.ListasSkip.NodoSkip : contiene >
+
+' Relación NodoSkip consigo mismo (para los diferentes niveles)
+EstructurasdeDatos.ListasSkip.NodoSkip "1" --> "0..*" EstructurasdeDatos.ListasSkip.NodoSkip : siguiente >
+
+@enduml
