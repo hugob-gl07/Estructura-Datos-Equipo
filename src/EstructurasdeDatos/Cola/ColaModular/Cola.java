@@ -4,10 +4,9 @@ package EstructurasdeDatos.Cola.ColaModular;
  * El primer elemento en entrar es el primero en salir.
  */
 public class Cola<T> {
-
     private ElementoDE<T> frente; // El primero de la cola
     private ElementoDE<T> fin;    // El último de la cola
-    private int tamaño;
+    private int tamaño; // Contador de elementos en la cola
     /** Constructor por defecto.*/
     public Cola() {
         this.frente = null;

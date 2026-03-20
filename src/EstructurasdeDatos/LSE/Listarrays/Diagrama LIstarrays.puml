@@ -1,7 +1,4 @@
 @startuml
-
-left to right direction
-
 interface ListaTAD<T> {
     + esVacia():boolean
     + longitud():int
@@ -9,7 +6,6 @@ interface ListaTAD<T> {
     + buscar(elemento:T):boolean
     + aciertos_exactos(otraLista:ListaTAD<T>):int
 }
-
 class Nodo<T> {
     - dato: T
     - siguiente: Nodo<T>
@@ -20,7 +16,6 @@ class Nodo<T> {
     + getSiguiente():Nodo<T>
     + setSiguiente(siguiente:Nodo<T>):void
 }
-
 class Lista<T> {
     - cabeza: Nodo<T>
     - tamano: int
@@ -40,4 +35,36 @@ class Lista<T> {
 }
 Lista ..|> ListaTAD : implements
 Lista *-- Nodo : composición
+
+note left of Lista
+**Métodos exclusivos de Lista:**
+**eliminar**: Elimina un elemento por valor usando recursividad
+**invertir**: Invierte el orden de la lista
+**obtenerCentral**: Devuelve el elemento central
+**EliminarRepetidos**: Elimina los elementos duplicados
+**detectorCiclo**: Detecta si hay un ciclo en la lista
+**EliminarPorElFinal**: Elimina el n-ésimo elemento desde el final
+**intercalar**: Intercala dos listas alternando sus elementos
+end note
+
+note bottom of ListaTAD
+**Métodos exclusivos de ListaTAD:**
+**aciertos_exactos**: Compara dos listas y devuelve el número de coincidencias
+end note
+
+note bottom of Nodo
+**Métodos de Nodo:**
+**getDato**: Devuelve el dato del nodo
+**setDato**: Modifica el dato del nodo
+**getSiguiente**: Devuelve el siguiente nodo
+**setSiguiente**: Modifica el siguiente nodo
+end note
+
+note as N4
+**Métodos compartidos Lista y ListaTAD:**
+**esVacia**: Devuelve true si está vacía, false si no
+**longitud**: Devuelve el número de elementos
+**insertarFinal**: Inserta un elemento al final usando recursividad
+**buscar**: Busca un elemento y devuelve true si existe
+end note
 @enduml

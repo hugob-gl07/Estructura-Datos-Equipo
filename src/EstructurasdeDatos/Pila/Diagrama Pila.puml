@@ -1,19 +1,39 @@
 @startuml
-class Elemento<T extends Comparable<T>>{
-    - dato:T
-    - siguiente:Elemento<T>
+
+class Elemento<T extends Comparable<T>> {
+    - dato: T
+    - siguiente: Elemento<T>
     + Elemento(dato:T)
     + getDato():T
     + setDato(dato:T):void
     + getSiguiente():Elemento<T>
     + setSiguiente(siguiente:Elemento<T>):void
 }
-class Pila<T extends Comparable<T>>{
-    - cabeza:Elemento<T>
+
+class Pila<T extends Comparable<T>> {
+    - cabeza: Elemento<T>
     + push(dato:T):void
     + pop():T
     + peek():T
     + isEmpty():boolean
 }
+
 Elemento *-- Pila
+
+note right of Pila
+**Métodos de Pila:**
+**push**: Inserta un elemento en la cima (LIFO)
+**pop**: Elimina y devuelve el elemento de la cima
+**peek**: Devuelve el elemento de la cima sin eliminarlo
+**isEmpty**: Devuelve true si está vacía, false si no
+end note
+
+note right of Elemento
+**Métodos de Elemento:**
+**getDato**: Devuelve el dato del elemento
+**setDato**: Modifica el dato del elemento
+**getSiguiente**: Devuelve el siguiente elemento
+**setSiguiente**: Modifica el siguiente elemento
+end note
+
 @enduml

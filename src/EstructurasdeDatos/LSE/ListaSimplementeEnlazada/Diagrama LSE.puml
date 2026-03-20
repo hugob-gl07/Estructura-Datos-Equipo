@@ -4,17 +4,20 @@ interface Iterador<T> {
     + hasNext():boolean
     + next():T
 }
+
 class ElementoSE<T> {
     # dato: T
     # siguiente: ElementoSE<T>
     + ElementoSE(dato:T)
 }
+
 class IteradorLSE<T> {
     - actual: ElementoSE<T>
     + IteradorLSE(inicio:ElementoSE<T>)
     + hasNext():boolean
     + next():T
 }
+
 class ListaSimplementeEnlazada<T extends Comparable<T>> {
     # primero: ElementoSE<T>
     # tamaño: int
@@ -30,12 +33,44 @@ class ListaSimplementeEnlazada<T extends Comparable<T>> {
     + getSize():int
     + getIterador():Iterador<T>
 }
+
 class LSEOrdenada<T extends Comparable<T>> {
     + add(dato:T):void
 }
-IteradorLSE ..|> Iterador : implements
+
+IteradorLSE .left.|> Iterador : implements
 LSEOrdenada --|> ListaSimplementeEnlazada : extends
 ListaSimplementeEnlazada *-- ElementoSE : composición
 IteradorLSE *-right- ElementoSE : actual
 ListaSimplementeEnlazada ..> Iterador : retorna
+
+note left of ListaSimplementeEnlazada
+**Métodos exclusivos de ListaSimplementeEnlazada:**
+**addFirst**: Inserta al inicio
+**getAt**: Obtiene por posición
+**insertAt**: Inserta en posición
+**removeAt**: Elimina por posición
+**getIterador**: Devuelve un iterador desde el primero
+end note
+
+note left of LSEOrdenada
+**Métodos exclusivos de LSEOrdenada:**
+**add**: Inserta manteniendo orden ascendente
+end note
+
+note bottom of IteradorLSE
+**Métodos de IteradorLSE:**
+**hasNext**: Devuelve true si quedan elementos
+**next**: Devuelve el elemento actual y avanza
+end note
+
+note as N1
+**Métodos compartidos ListaSimplementeEnlazada y LSEOrdenada:**
+**add**: Inserta al final
+**get**: Busca por valor
+**del**: Elimina por valor
+**isEmpty**: Devuelve true si está vacía, false si no
+**getSize**: Devuelve el número de elementos
+end note
+
 @enduml

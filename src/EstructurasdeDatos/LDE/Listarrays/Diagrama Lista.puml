@@ -1,4 +1,5 @@
 @startuml
+
 class Lista<T> {
     - cabeza: Nodo<T>
     - cola: Nodo<T>
@@ -15,6 +16,7 @@ class Lista<T> {
     + eliminarUltimo():void
     + eliminar(elemento:T):void
 }
+
 class Nodo<T> {
     - dato: T
     - siguiente: Nodo<T>
@@ -27,5 +29,35 @@ class Nodo<T> {
     + getAnterior():Nodo<T>
     + setAnterior(anterior:Nodo<T>):void
 }
+
 Lista *-- Nodo : composición
+
+note right of Lista
+**Métodos de inserción:**
+**insertarPrincipio**: Inserta un elemento al inicio
+**insertarFinal**: Inserta un elemento al final
+
+**Métodos de eliminación:**
+**eliminarPrimero**: Elimina el primer elemento
+**eliminarUltimo**: Elimina el último elemento
+**eliminar**: Elimina un elemento por valor
+
+**Métodos de consulta:**
+**esVacia**: Devuelve true si está vacía, false si no
+**longitud**: Devuelve el número de elementos
+**buscar**: Devuelve true si el elemento existe, false si no
+**imprimirAdelante**: Recorre e imprime de inicio a fin
+**imprimirAtras**: Recorre e imprime de fin a inicio
+end note
+
+note right of Nodo
+**Métodos de Nodo:**
+**getDato**: Devuelve el dato del nodo
+**setDato**: Modifica el dato del nodo
+**getSiguiente**: Devuelve el siguiente nodo
+**setSiguiente**: Modifica el siguiente nodo
+**getAnterior**: Devuelve el nodo anterior
+**setAnterior**: Modifica el nodo anterior
+end note
+
 @enduml

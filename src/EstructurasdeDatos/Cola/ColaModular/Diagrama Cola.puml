@@ -16,4 +16,31 @@ class ElementoDE<T> {
     + ElementoDE(dato:T)
 }
 Cola *-- ElementoDE : composición
+
+note right of Cola::enqueue
+**Insertar al final de la Cola (FIFO)**
+end note
+
+note left of Cola::dequeue
+**Eliminar el primer elemento de la Cola**
+end note
+
+note right of Cola::front
+**Devuelve el primer elemento sin eliminarlo**
+end note
+
+note left of Cola::getSize
+**Devuelve el número de elementos de la Cola**
+end note
+
+note right of Cola::isEmpty
+**Devuelve true si la Cola está vacía, false en caso contrario**
+end note
+
+note top of Cola
+cabeza: Puntero al primer elemento
+cola: Puntero al último elemento
+end note
+
 @enduml
+

@@ -1,44 +1,58 @@
 @startuml
-skinparam classAttributeIconSize 0
-skinparam monochrome true
-skinparam shadowing false
 
-package EstructurasdeDatos.ListasSkip {
+left to right direction
 
-    class ListaSkip<T extends Comparable<T>> {
-        - CABECERA : NodoSkip<T>
-        - nivelActual : int
-        - MAX_NIVEL : int = 16
-        - random : Random
-        + ListaSkip()
-        + insertar(dato: T) : void
-        + eliminar(dato: T) : boolean
-        + buscar(dato: T) : boolean
-        + obtenerMinimo() : T
-        + imprimir() : void
-        - generarNivelAleatorio() : int
-    }
-
-    class NodoSkip<T> {
-        - dato : T
-        - siguiente : NodoSkip<T>[]
-        + NodoSkip(dato: T, nivel: int)
-        + getDato() : T
-        + getSiguiente(nivel: int) : NodoSkip<T>
-        + setSiguiente(nivel: int, nodo: NodoSkip<T>) : void
-    }
-
-    ' Relación de composición: La lista "es dueña" de los nodos
-    ListaSkip "1" *-- "0..*" NodoSkip : gestiona >
-
-    ' Relación recursiva: Un nodo apunta a otros nodos en sus distintos niveles
-    NodoSkip "1" --> "0..*" NodoSkip : siguiente[nivel] >
+class ListaSkip<T extends Comparable<T>> {
+    - MAX_NIVEL: int
+    - cabeza: NodoSkip<T>
+    - nivelActual: int
+    - random: Random
+    - tamano: int
+    + ListaSkip()
+    + lanzarMoneda():int
+    + getTamaño():int
+    + estaVacia():boolean
+    + insertar(elemento:T):void
+    + buscar(elemento:T):boolean
+    + eliminar(elemento:T):boolean
+    + imprimir():void
+    + obtenerMinimo():T
+    + obtenerMaximo():T
+    + vaciar():void
 }
 
-note bottom of ListaSkip
-  Estructura probabilística que permite
-  búsquedas rápidas mediante "saltos"
-  entre niveles superiores.
+class NodoSkip<T extends Comparable<T>> {
+    - dato: T
+    - siguiente: NodoSkip<T>[]
+    + NodoSkip(dato:T, nivel:int)
+    + getDato():T
+    + setDato(dato:T):void
+    + getSiguiente(nivel:int):NodoSkip<T>
+    + setSiguiente(nivel:int, nodo:NodoSkip<T>):void
+}
+
+ListaSkip *-- NodoSkip : composición
+
+note left of ListaSkip
+**Métodos de ListaSkip:**
+**lanzarMoneda**: Genera un nivel aleatorio para el nuevo nodo
+**getTamaño**: Devuelve el número de elementos
+**estaVacia**: Devuelve true si está vacía, false si no
+**insertar**: Inserta manteniendo orden ascendente
+**buscar**: Busca un elemento usando los niveles de salto
+**eliminar**: Elimina y reorganiza las conexiones internas
+**imprimir**: Muestra el contenido nivel por nivel
+**obtenerMinimo**: Devuelve el elemento más pequeño
+**obtenerMaximo**: Devuelve el elemento más grande
+**vaciar**: Elimina todos los elementos
+end note
+
+note right of NodoSkip
+**Métodos de NodoSkip:**
+**getDato**: Devuelve el dato del nodo
+**setDato**: Modifica el dato del nodo
+**getSiguiente**: Devuelve el nodo en el nivel indicado
+**setSiguiente**: Establece la conexión en el nivel indicado
 end note
 
 @enduml

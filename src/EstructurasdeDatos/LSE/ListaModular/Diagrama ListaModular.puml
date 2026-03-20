@@ -21,7 +21,6 @@ class ElementoSE<T> {
     + siguiente: ElementoSE<T>
     + ElementoSE(valor:T)
 }
-
 class IteradorLSE<T> {
     - actual: ElementoSE<T>
     + IteradorLSE(comienzo:ElementoSE<T>)
@@ -53,4 +52,29 @@ LSEOrdenada --|> ListaSimplementeEnlazada : extends
 ListaSimplementeEnlazada *-- ElementoSE : composición
 ListaSimplementeEnlazada ..> IteradorLSE : usa
 IteradorLSE ..> ElementoSE : usa
+
+note left of ListaSimplementeEnlazada
+**Métodos exclusivos de ListaSimplementeEnlazada:**
+**getIterador**: Devuelve un iterador desde el primero
+end note
+
+note left of Lista
+**Métodos exclusivos de Lista:**
+**mostrarLista**: Devuelve representación en texto
+end note
+
+note as N1
+**Métodos compartidos Lista y ListaSimplementeEnlazada:**
+**add**: Inserta al final
+**del**: Elimina por valor
+**get**: Busca por valor
+**isEmpty**: Devuelve true si está vacía, false si no
+**getSize**: Devuelve el número de elementos
+**vaciar**: Vacía la lista
+**existe**: Comprueba si existe un elemento
+**obtenerPorPosicion**: Devuelve el elemento en la posición indicada
+**cambiarEnPosicion**: Reemplaza el dato en la posición indicada
+end note
+
+
 @enduml

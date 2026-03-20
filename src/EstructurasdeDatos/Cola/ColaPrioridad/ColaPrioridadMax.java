@@ -36,7 +36,6 @@ public class  ColaPrioridadMax<T extends Comparable<T>> {
     public void clear(){
         lista.clear(); // Delegamos en la LDEOrdenada
     }
-
     /** Devuelve el elemento con menor prioridad sin eliminarlo.*/
     public T peekMin(){
         if(lista.isEmpty()){
