@@ -22,7 +22,6 @@ import EstructurasdeDatos.ListasSkip.ListaSkip;
  * desde las estructuras más simples hasta las topologías más complejas.
  */
 public class Tester {
-
     /**
      * Metodo principal de las pruebas.
      * @param args Argumentos de sistema .
